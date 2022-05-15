@@ -1,0 +1,83 @@
+.patients {
+  padding: 5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+.patient-card {
+  background: linear-gradient(
+      rgba(255, 250, 238, 0.3) 0%,
+      rgba(255, 250, 238, 0.8) 100%
+    ),
+    url("https://www.transparenttextures.com/patterns/notebook-dark.png");
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 3rem 1.2rem;
+}
+.patient-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-bg-color);
+}
+.patient-content p {
+  margin-bottom: 1rem;
+}
+.patient-info {
+}
+.patient-picture {
+  margin: auto;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-image: url(./img/user-avatar-male.svg);
+  background-size: cover;
+  margin-bottom: 2rem;
+}
+.patient-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.patient-birthdate {
+}
+.patient-email {
+}
+.patient-action-btns {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.patient-action-btns button {
+  padding: 0.7rem 2rem;
+  border-radius: 0.4rem;
+
+  cursor: pointer;
+}
+.view-log-btn {
+  background-color: var(--accent-bg-color);
+  color: var(--main-bg-color);
+  border: none;
+}
+.delete-btn {
+  background-color: var(--main-bg-color);
+  color: var(--accent-bg-color);
+  border: 0.1rem solid var(--accent-bg-color);
+}
+
+@media screen and (min-width: 500px) {
+  .patient-card {
+    padding: 4rem 5rem;
+  }
+}

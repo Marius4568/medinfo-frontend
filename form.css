@@ -1,0 +1,80 @@
+.login-section {
+  display: grid;
+  place-items: center;
+  padding: 5rem 0;
+}
+
+.login-section form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.login-section form div {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-section form label {
+  color: var(--accent-bg-color);
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.login-section form input[type="email"],
+.login-section form input[type="password"],
+.login-section form input[type="text"] {
+  background-color: transparent;
+  border: none;
+  border-bottom: 0.1rem solid var(--accent-bg-color);
+  color: var(--accent-bg-color);
+}
+
+.login-section form input:focus {
+  outline: none;
+}
+
+.login-section form input::placeholder {
+  color: hsl(0, 0%, 85%);
+}
+
+.email-input-wrap {
+}
+#emailInput {
+}
+#passwordInput {
+}
+
+.login-section .login-wrap {
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.login-wrap p {
+  font-size: 0.8rem;
+  color: var(--attention-dark-color);
+  text-align: center;
+}
+
+.login-wrap button {
+  cursor: pointer;
+  border-radius: 0.4rem;
+  border: none;
+  background-color: var(--attention-light-color);
+  color: var(--accent-bg-color);
+  padding: 0.7rem 2rem;
+  transition: background-color 0.3s;
+}
+
+.login-wrap button:hover {
+  transition: background-color 0.3s;
+  background-color: hsl(42, 100%, 83%);
+}
+
+.login-wrap a {
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--accent-bg-color);
+}

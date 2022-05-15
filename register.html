@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MI Home</title>
+    <title>MI Register</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -24,7 +24,9 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="form.css" />
     <script src="index.js" defer></script>
+    <script src="register.js" defer></script>
   </head>
   <body>
     <header>
@@ -34,18 +36,67 @@
         /></a>
         <nav>
           <div class="burger-menu"><span></span><span></span><span></span></div>
-
           <ul>
-            <a href="login.html"> <li>Login</li> </a>
-            <a href="register.html"> <li>Register</li> </a>
+            <a href="./login.html"> <li>Log in</li> </a>
           </ul>
         </nav>
       </div>
     </header>
     <main>
       <div class="page-title">
-        <h1>Home</h1>
+        <h1>Register</h1>
       </div>
+      <section class="login-section">
+        <form name="login_form">
+          <div class="name-input-wrap">
+            <label for="nameInput">Full name:</label>
+            <input
+              type="text"
+              name=""
+              id="nameInput"
+              placeholder="John Snow"
+              required
+            />
+          </div>
+
+          <div class="specialty-input-wrap">
+            <label for="nameInput">Specialty:</label>
+            <input
+              type="text"
+              name=""
+              id="specialtyInput"
+              placeholder="Dermatologist"
+              required
+            />
+          </div>
+
+          <div class="email-input-wrap">
+            <label for="emailInput">Email:</label>
+            <input
+              type="email"
+              name=""
+              id="emailInput"
+              placeholder="SecurePassword98$97$&&"
+              required
+            />
+          </div>
+
+          <div class="password-input-wrap">
+            <label for="passwordInput">Password:</label>
+            <input
+              type="password"
+              name=""
+              id="passwordInput"
+              placeholder="johnnycook@bok.com"
+              required
+            />
+          </div>
+          <div class="login-wrap">
+            <button type="submit">REGISTER</button>
+            <p>Already have an account? <a href="./login.html">Log in!</a></p>
+          </div>
+        </form>
+      </section>
     </main>
     <footer>
       <p>©2022. MEDINFO. All rights reserved.</p>
