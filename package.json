@@ -3,8 +3,8 @@
   "description": "website to view your medical history",
   "version": "1.0.0",
   "scripts": {
-    "dev": "parcel ./src/html/index.html",
-    "build": "parcel build ./src/html/index.html"
+    "dev": "parcel ./src/html/*.html ",
+    "build": "parcel build ./src/html/*.html "
   },
   "repository": {
     "type": "git",
@@ -17,14 +17,12 @@
     "url": "https://github.com/Marius4568/medinfo-frontend/issues"
   },
   "homepage": "https://github.com/Marius4568/medinfo-frontend#readme",
-  "dependencies": {
-    "parcel": "^2.5.0"
-  },
   "devDependencies": {
     "eslint": "^8.15.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
+    "parcel": "^2.5.0",
     "prettier": "^2.6.2"
   }
 }
