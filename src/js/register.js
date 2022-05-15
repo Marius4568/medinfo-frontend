@@ -10,8 +10,8 @@ form.addEventListener('submit', async (ev) => {
   ev.preventDefault();
   userDetails = {
     name: form.children[0].children[1].value,
-    email: form.children[2].children[1].value,
-    password: form.children[3].children[1].value,
+    email: form.children[1].children[1].value,
+    password: form.children[2].children[1].value,
   };
 
   const res = await fetch(
