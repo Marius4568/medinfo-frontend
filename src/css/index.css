@@ -7,7 +7,7 @@
 body {
   background-color: var(--main-bg-color);
   /* background-image: url("https://www.transparenttextures.com/patterns/notebook-dark.png"); */
-  font-family: "Inria Sans", sans-serif;
+  font-family: 'Inria Sans', sans-serif;
   overflow-x: hidden;
 }
 
@@ -171,5 +171,28 @@ footer {
 
   .burger-menu {
     display: none;
+  }
+}
+
+.spinner {
+  background: url('../assets/img/spinnerEllipse.svg');
+  background-size: cover;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  animation: spin 1.5s alternate infinite;
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  right: 1rem;
+  transform: translateY(-50%) rotate(0deg) scale(1);
+}
+
+@keyframes spin {
+  0% {
+    transform: translateY(-50%) rotate(0deg) scale(1);
+  }
+  100% {
+    transform: translateY(-50%) rotate(720deg) scale(1.1);
   }
 }

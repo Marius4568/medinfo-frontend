@@ -23,9 +23,9 @@
   font-size: 1.1rem;
 }
 
-.login-section form input[type="email"],
-.login-section form input[type="password"],
-.login-section form input[type="text"] {
+.login-section form input[type='email'],
+.login-section form input[type='password'],
+.login-section form input[type='text'] {
   background-color: transparent;
   border: none;
   border-bottom: 0.1rem solid var(--accent-bg-color);
@@ -66,6 +66,9 @@
   color: var(--accent-bg-color);
   padding: 0.7rem 2rem;
   transition: background-color 0.3s;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .login-wrap button:hover {
