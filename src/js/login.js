@@ -1,5 +1,4 @@
 const submitBtn = document.querySelector('button[type =submit]');
-console.log(submitBtn);
 
 const token = sessionStorage.getItem('userToken');
 
@@ -18,9 +17,16 @@ form.addEventListener('submit', async (ev) => {
 
   const spinner = document.createElement('div');
   spinner.classList.add('spinner');
-  submitBtn.append(spinner);
+  gsap.set(spinner, {
+    width: 0,
+  });
+
   gsap.to(submitBtn, {
-    paddingRight: '3rem',
+    width: '+=1rem',
+  });
+  submitBtn.append(spinner);
+  gsap.to(spinner, {
+    width: '1rem',
   });
 
   try {
@@ -43,9 +49,11 @@ form.addEventListener('submit', async (ev) => {
   } catch (error) {
     console.log(error);
   }
-
-  gsap.to(submitBtn, {
-    paddingRight: '2rem',
+  gsap.to(spinner, {
+    width: 0,
   });
   spinner.remove();
+  gsap.to(submitBtn, {
+    width: 'auto',
+  });
 });

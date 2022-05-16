@@ -10,7 +10,9 @@
   width: 50%;
 }
 
-.login-section form div {
+.email-input-wrap,
+.password-input-wrap,
+.login-wrap {
   margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
@@ -66,7 +68,11 @@
   color: var(--accent-bg-color);
   padding: 0.7rem 2rem;
   transition: background-color 0.3s;
-  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.login-wrap button div {
   display: flex;
   align-items: center;
 }
