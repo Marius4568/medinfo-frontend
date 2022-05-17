@@ -25,5 +25,8 @@
     "eslint-plugin-import": "^2.26.0",
     "parcel": "^2.5.0",
     "prettier": "^2.6.2"
+  },
+  "dependencies": {
+    "gsap": "^3.10.4"
   }
 }

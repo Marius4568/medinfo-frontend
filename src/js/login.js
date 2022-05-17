@@ -1,3 +1,5 @@
+import gsap from 'gsap';
+
 import { config } from './config';
 
 const submitBtn = document.querySelector('button[type = submit]');
@@ -7,7 +9,7 @@ const passwordInput = document.querySelector('input[type = password]');
 const token = sessionStorage.getItem('userToken');
 
 if (token) {
-  location.href = 'patients.html';
+  window.location.href = 'patients.html';
 }
 
 const form = document.forms.login_form;
@@ -44,7 +46,7 @@ form.addEventListener('submit', async (ev) => {
     const data = await res.json();
     if (data.token) {
       sessionStorage.setItem('userToken', data.token);
-      location.href = '/patients.html';
+      window.location.href = '/patients.html';
     }
     console.log(data);
 
@@ -55,7 +57,7 @@ form.addEventListener('submit', async (ev) => {
 
       const formFlashMessage = document.createElement('div');
       formFlashMessage.classList.add('form-flash-message');
-      formFlashMessage.textContent = 'Error: ' + data.error;
+      formFlashMessage.textContent = `Error: ${data.error}`;
 
       gsap.set(formFlashMessage, {
         height: 0,
@@ -69,7 +71,7 @@ form.addEventListener('submit', async (ev) => {
         opacity: 1,
       });
 
-      const delayedCall = gsap.delayedCall(7, () => {
+      gsap.delayedCall(7, () => {
         const tl = gsap.timeline();
         tl.to(formFlashMessage, {
           height: 0,
