@@ -194,3 +194,15 @@ form div button .spinner {
     transform: rotate(720deg) scale(1.1);
   }
 }
+
+.form-flash-message {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+  background-color: hsl(0, 100%, 78%);
+  border-radius: 0.4rem;
+  position: relative;
+  top: -1rem;
+  color: white;
+  text-align: center;
+}
