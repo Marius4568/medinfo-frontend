@@ -1,5 +1,7 @@
 import gsap from 'gsap';
 
+import formAnimations from './gsap-animations/formAnimations';
+
 import { config } from './config';
 
 const submitBtn = document.querySelector('button[type = submit]');
@@ -21,19 +23,7 @@ form.addEventListener('submit', async (ev) => {
     password: passwordInput.value,
   };
 
-  const spinner = document.createElement('div');
-  spinner.classList.add('spinner');
-  gsap.set(spinner, {
-    width: 0,
-  });
-
-  gsap.to(submitBtn, {
-    width: '+=1rem',
-  });
-  submitBtn.append(spinner);
-  gsap.to(spinner, {
-    width: '1rem',
-  });
+  formAnimations.buttonspinnerInit(submitBtn);
 
   try {
     const res = await fetch(`${config.baseFetchLink}user/login`, {
@@ -49,45 +39,9 @@ form.addEventListener('submit', async (ev) => {
       window.location.href = '/patients.html';
     }
     console.log(data);
-
-    if (data.error) {
-      if (document.querySelector('.form-flash-message')) {
-        document.querySelector('.form-flash-message').remove();
-      }
-
-      const formFlashMessage = document.createElement('div');
-      formFlashMessage.classList.add('form-flash-message');
-      formFlashMessage.textContent = `Error: ${data.error}`;
-
-      gsap.set(formFlashMessage, {
-        height: 0,
-        opacity: 0,
-      });
-
-      form.prepend(formFlashMessage);
-
-      gsap.to(formFlashMessage, {
-        height: 'auto',
-        opacity: 1,
-      });
-
-      gsap.delayedCall(7, () => {
-        const tl = gsap.timeline();
-        tl.to(formFlashMessage, {
-          height: 0,
-          padding: 0,
-        });
-        tl.call(() => formFlashMessage.remove());
-      });
-    }
+    formAnimations.buttonspinnerRemove(submitBtn);
+    formAnimations.formMessageAnimation(data, form, 'error');
   } catch (error) {
     console.log(error);
   }
-  gsap.to(spinner, {
-    width: 0,
-  });
-  spinner.remove();
-  gsap.to(submitBtn, {
-    width: 'auto',
-  });
 });

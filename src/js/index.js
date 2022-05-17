@@ -1,5 +1,7 @@
+import gsap from 'gsap';
+
 const burgerMenu = document.querySelector('.burger-menu');
-const headerNavlinks = document.querySelector('header nav ul');
+// const headerNavlinks = document.querySelector('header nav ul');
 
 const navtl = gsap.timeline({ paused: true });
 
@@ -24,7 +26,7 @@ function gsapToggle(timeline, reverseDuration) {
   }
 }
 
-burgerMenu.addEventListener('click', (ev) => {
+burgerMenu.addEventListener('click', () => {
   burgerMenu.classList.toggle('burger-menu-x');
 
   gsapToggle(navtl, 0.5);
@@ -32,6 +34,6 @@ burgerMenu.addEventListener('click', (ev) => {
 
 window.addEventListener('storage', (ev) => {
   if (ev.key === 'userToken' && ev.newValue === null) {
-    location.href = 'login.html';
+    window.location.href = 'login.html';
   }
 });

@@ -100,14 +100,14 @@ form div button .spinner {
   margin-left: 1rem;
 }
 
-@keyframes spin {
+/* @keyframes spin {
   0% {
     transform: rotate(0deg) scale(1);
   }
   100% {
     transform: rotate(720deg) scale(1.1);
   }
-}
+} */
 
 .form-flash-message {
   width: 100%;
