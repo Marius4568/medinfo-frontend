@@ -13,7 +13,8 @@
 
 .email-input-wrap,
 .password-input-wrap,
-.login-wrap {
+.login-wrap,
+.name-input-wrap {
   margin-bottom: 3rem;
   display: flex;
   flex-direction: column;

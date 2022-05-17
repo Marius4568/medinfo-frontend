@@ -24,13 +24,31 @@ async function displayPatients() {
         'Content-type': 'application/json',
       },
     });
-    console.log(sessionStorage);
     const data = await res.json();
-    if (data.token) {
-      sessionStorage.setItem('userToken', data.token);
-      window.location.href = '/patients.html';
-    }
-    console.log(data);
+
+    console.log(data.patients);
+    const container = document.querySelector('.patients');
+    container.innerHTML = '';
+    data.patients.forEach((el) => {
+      const card = `
+      <div class="patient-card">
+      <div class="patient-content">
+        <div class="patient-info">
+          <div class="patient-picture"></div>
+          <p class="patient-name">${el.first_name}</p>
+          <p class="patient-birthdate">${el.birth_date}</p>
+          <p class="patient-email">${el.email}</p>
+        </div>
+        <div class="patient-action-btns">
+          <button class="view-log-btn">View log</button
+          ><button class="delete-btn">Delete</button>
+        </div>
+      </div>
+    </div>
+      `;
+
+      container.innerHTML += card;
+    });
   } catch (error) {
     console.log(error);
   }

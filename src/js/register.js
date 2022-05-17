@@ -1,36 +1,52 @@
+import formAnimations from './gsap-animations/formAnimations';
+
+import { config } from './config';
+
+const submitBtn = document.querySelector('button[type = submit]');
+const emailInput = document.querySelector('input[type = email]');
+const nameInput = document.querySelector('input[type = text]');
+
+const passwordInput = document.querySelector('input[type = password]');
+
 const token = sessionStorage.getItem('userToken');
 
 if (token) {
-  location.href = 'patients.html';
+  window.location.href = 'patients.html';
 }
 
 const form = document.forms.login_form;
 
 form.addEventListener('submit', async (ev) => {
   ev.preventDefault();
-  userDetails = {
-    name: form.children[0].children[1].value,
-    email: form.children[1].children[1].value,
-    password: form.children[2].children[1].value,
+  const userDetails = {
+    email: emailInput.value,
+    password: passwordInput.value,
+    name: nameInput.value,
   };
 
-  const res = await fetch(
-    'https://lemon-circular-eucalyptus.glitch.me/user/register',
-    {
+  if (!ev.detail || ev.detail === 1) {
+    formAnimations.buttonspinnerInit(submitBtn);
+  }
+
+  try {
+    const res = await fetch(`${config.baseFetchLink}user/register`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
       },
       body: JSON.stringify(userDetails),
+    });
+    const data = await res.json();
+    if (data.token) {
+      sessionStorage.setItem('userToken', data.token);
+      window.location.href = '/patients.html';
     }
-  );
-  const data = await res.json();
-  if (data.msg === 'User created') {
-    alert('User created');
-  }
+    console.log(data);
 
-  if (data.msg === 'User already exists') {
-    alert('User already exists');
+    formAnimations.formMessageAnimation(data, form, Object.keys(data)[0]);
+
+    formAnimations.buttonspinnerRemove(submitBtn);
+  } catch (error) {
+    console.log(error);
   }
-  console.log(data);
 });
