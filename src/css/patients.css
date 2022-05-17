@@ -5,6 +5,8 @@
   justify-content: center;
   align-items: center;
   gap: 5rem;
+  position: relative;
+  min-height: calc(100% - 10rem);
 }
 .patient-card {
   background: linear-gradient(
@@ -39,9 +41,8 @@
   width: 6rem;
   border-radius: 50%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  background-image: url(../assets/img/user-avatar-male.svg);
-  background-size: cover;
   margin-bottom: 2rem;
+  object-fit: cover;
 }
 .patient-name {
   font-weight: bold;

@@ -6,6 +6,10 @@ if (!token) {
   window.location.replace('login.html');
 }
 
+function isImage(url) {
+  return /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
+}
+
 const logoutBtn = document.querySelector('.logout');
 
 logoutBtn.addEventListener('click', () => {
@@ -17,6 +21,11 @@ logoutBtn.addEventListener('click', () => {
 
 async function displayPatients() {
   try {
+    const container = document.querySelector('.patients');
+    container.innerHTML = '';
+    const spinner = document.createElement('div');
+    spinner.classList.add('page-spinner');
+    container.append(spinner);
     const res = await fetch(`${config.baseFetchLink}patient/get_patients`, {
       method: 'GET',
       headers: {
@@ -25,17 +34,27 @@ async function displayPatients() {
       },
     });
     const data = await res.json();
+    spinner.remove();
+    let avatar = '';
 
-    console.log(data.patients);
-    const container = document.querySelector('.patients');
-    container.innerHTML = '';
     data.patients.forEach((el) => {
+      avatar = el.photo;
+      if (!isImage(el.photo)) {
+        if (el.gender === 'male') {
+          avatar =
+            'https://res.cloudinary.com/dcqggnzbv/image/upload/v1652801035/Medinfo/img/male-avatar_tjrozp.svg';
+        } else if (el.gender === 'female') {
+          avatar =
+            'https://res.cloudinary.com/dcqggnzbv/image/upload/v1652801017/Medinfo/img/female-avatar_fzfodt.svg';
+        }
+      }
+
       const card = `
       <div class="patient-card">
       <div class="patient-content">
         <div class="patient-info">
-          <div class="patient-picture"></div>
-          <p class="patient-name">${el.first_name}</p>
+          <img src="${avatar}" class="patient-picture"></img>
+          <p class="patient-name">${el.first_name} ${el.last_name}</p>
           <p class="patient-birthdate">${el.birth_date}</p>
           <p class="patient-email">${el.email}</p>
         </div>
@@ -49,6 +68,7 @@ async function displayPatients() {
 
       container.innerHTML += card;
     });
+    // document.body.style.minHeight = '100vh';
   } catch (error) {
     console.log(error);
   }

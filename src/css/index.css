@@ -4,6 +4,7 @@
   --attention-light-color: hsl(42, 100%, 78%);
   --attention-dark-color: hsl(168, 43%, 22%);
 }
+
 body {
   background-color: var(--main-bg-color);
   /* background-image: url("https://www.transparenttextures.com/patterns/notebook-dark.png"); */
@@ -119,6 +120,7 @@ header nav .mobile-expand {
 /*Main*/
 main {
   min-height: calc(100vh - 12rem);
+  height: calc(100vh - 12rem);
 }
 .page-title {
   background-color: var(--accent-bg-color);
@@ -141,11 +143,11 @@ footer {
   height: 6rem;
   background-color: var(--accent-bg-color);
   color: var(--main-bg-color);
-  position: relative;
   width: 100%;
   display: grid;
   place-items: center;
-  z-index: -1;
+  position: relative;
+  z-index: 1;
   bottom: 0;
 }
 
@@ -172,5 +174,23 @@ footer {
 
   .burger-menu {
     display: none;
+  }
+}
+
+.page-spinner {
+  background: url('../assets/img/spinnerEllipse.svg');
+  background-size: cover;
+  height: 5rem;
+  width: 5rem;
+  animation: spin 2s alternate-reverse infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  100% {
+    transform: rotate(720deg) scale(1.1);
   }
 }
