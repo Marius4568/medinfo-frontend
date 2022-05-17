@@ -14,7 +14,7 @@ const form = document.forms.login_form;
 
 form.addEventListener('submit', async (ev) => {
   ev.preventDefault();
-  userDetails = {
+  const userDetails = {
     email: emailInput.value,
     password: passwordInput.value,
   };
