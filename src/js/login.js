@@ -1,4 +1,4 @@
-import gsap from 'gsap';
+// import gsap from 'gsap';
 
 import formAnimations from './gsap-animations/formAnimations';
 
@@ -23,7 +23,9 @@ form.addEventListener('submit', async (ev) => {
     password: passwordInput.value,
   };
 
-  formAnimations.buttonspinnerInit(submitBtn);
+  if (!ev.detail || ev.detail === 1) {
+    formAnimations.buttonspinnerInit(submitBtn);
+  }
 
   try {
     const res = await fetch(`${config.baseFetchLink}user/login`, {
@@ -39,8 +41,10 @@ form.addEventListener('submit', async (ev) => {
       window.location.href = '/patients.html';
     }
     console.log(data);
+
+    formAnimations.formMessageAnimation(data, form, Object.keys(data)[0]);
+
     formAnimations.buttonspinnerRemove(submitBtn);
-    formAnimations.formMessageAnimation(data, form, 'error');
   } catch (error) {
     console.log(error);
   }

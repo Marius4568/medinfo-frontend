@@ -3,7 +3,7 @@
   "description": "website to view your medical history",
   "version": "1.0.0",
   "scripts": {
-    "dev": "parcel ./src/html/*.html --lazy",
+    "dev": "parcel ./src/html/*.html",
     "prebuild": "rm -rf dist",
     "build": "parcel build ./src/html/*.html "
   },
@@ -23,10 +23,10 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
-    "parcel": "^2.5.0",
     "prettier": "^2.6.2"
   },
   "dependencies": {
-    "gsap": "^3.10.4"
+    "gsap": "^3.10.4",
+    "parcel": "^2.5.0"
   }
 }
