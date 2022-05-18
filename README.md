@@ -3,6 +3,7 @@
   
 ### :construction:work in progress:construction:
 live preview: https://moonlit-dusk-4000da.netlify.app/
+backend-repo: https://github.com/Marius4568/medinfo-backend
 
 ## :computer:To run this app locally:
 1. Run **git clone** in your terminal, or download the project files.
