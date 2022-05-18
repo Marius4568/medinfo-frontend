@@ -1,4 +1,4 @@
-# :stethoscope:Website to view your patients medical history
+# :stethoscope:Medinfo - your patients medical info
   This application is designed for doctors to document, view and manage their patients medical data.
   
 ### :construction:work in progress:construction:
