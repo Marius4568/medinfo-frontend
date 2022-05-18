@@ -45,7 +45,7 @@ form.addEventListener('submit', async (ev) => {
     formAnimations.formMessageAnimation(data, form, Object.keys(data)[0]);
 
     formAnimations.buttonspinnerRemove(submitBtn);
-    if (data.error) {
+    if (data.msg === 'User created') {
       window.location.href = '/login.html';
     }
   } catch (error) {
