@@ -40,6 +40,7 @@ async function displayPatients() {
 
     // If there's no patients:
     if (data.patients.length === 0) {
+      container.innerHTML = {};
     }
 
     // If the doctor has patients display them:
@@ -56,9 +57,8 @@ async function displayPatients() {
             'https://res.cloudinary.com/dcqggnzbv/image/upload/v1652801017/Medinfo/img/female-avatar_fzfodt.svg';
         }
       }
-
       const card = `
-      <div class="patient-card">
+      <div  class="patient-card">
       <div class="patient-content">
         <div class="patient-info">
           <img src="${avatar}" class="patient-picture"></img>
@@ -67,7 +67,7 @@ async function displayPatients() {
           <p class="patient-email">${el.email}</p>
         </div>
         <div class="patient-action-btns">
-          <button class="view-log-btn">View log</button
+          <button data-id="${el.patient_id}" class="view-log-btn">View logs</button
           ><button class="delete-btn">Delete</button>
         </div>
       </div>
@@ -76,7 +76,11 @@ async function displayPatients() {
 
       container.innerHTML += card;
     });
-    // document.body.style.minHeight = '100vh';
+    document.querySelectorAll('.view-log-btn').forEach((el) => {
+      el.addEventListener('click', () => {
+        window.location.href = `/patient.html?id=${el.dataset.id}`;
+      });
+    });
   } catch (error) {
     console.log(error);
   }
