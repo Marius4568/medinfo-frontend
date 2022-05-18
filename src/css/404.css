@@ -3,7 +3,7 @@ main {
 }
 
 .section-404 {
-  height: 100%;
+  margin-top: 3rem;
   width: 100%;
   display: grid;
   place-items: center;
