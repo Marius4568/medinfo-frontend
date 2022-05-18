@@ -1,3 +1,3 @@
-export const config = {
+export default {
   baseFetchLink: 'https://lemon-circular-eucalyptus.glitch.me/',
 };

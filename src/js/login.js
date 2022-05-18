@@ -2,7 +2,7 @@
 
 import formAnimations from './gsap-animations/formAnimations';
 
-import { config } from './config';
+import config from './config';
 
 const submitBtn = document.querySelector('button[type = submit]');
 const emailInput = document.querySelector('input[type = email]');

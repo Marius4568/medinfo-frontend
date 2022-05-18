@@ -1,7 +1,13 @@
+form[name='login_form'],
+form[name='register_form'] {
+  max-width: 35rem;
+}
+
 .login-section {
   display: grid;
   place-items: center;
   padding: 5rem 0;
+  min-height: calc(100vh - 26rem);
 }
 
 .login-section form {

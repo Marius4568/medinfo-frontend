@@ -1,6 +1,6 @@
 import formAnimations from './gsap-animations/formAnimations';
 
-import { config } from './config';
+import config from './config';
 
 const submitBtn = document.querySelector('button[type = submit]');
 const emailInput = document.querySelector('input[type = email]');
@@ -41,11 +41,13 @@ form.addEventListener('submit', async (ev) => {
       sessionStorage.setItem('userToken', data.token);
       window.location.href = '/patients.html';
     }
-    console.log(data);
 
     formAnimations.formMessageAnimation(data, form, Object.keys(data)[0]);
 
     formAnimations.buttonspinnerRemove(submitBtn);
+    if (data.error) {
+      window.location.href = '/login.html';
+    }
   } catch (error) {
     console.log(error);
   }

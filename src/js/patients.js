@@ -1,4 +1,5 @@
-import { config } from './config';
+import spinningAnimation from './gsap-animations/spinner';
+import config from './config';
 
 const token = sessionStorage.getItem('userToken');
 
@@ -25,6 +26,7 @@ async function displayPatients() {
     container.innerHTML = '';
     const spinner = document.createElement('div');
     spinner.classList.add('page-spinner');
+    spinningAnimation(spinner);
     container.append(spinner);
     const res = await fetch(`${config.baseFetchLink}patient/get_patients`, {
       method: 'GET',
