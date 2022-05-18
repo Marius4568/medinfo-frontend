@@ -48,7 +48,7 @@ form.addEventListener('submit', async (ev) => {
     if (data.msg === 'User created') {
       setTimeout(() => {
         window.location.href = '/login.html';
-      }, 1000);
+      }, 2000);
     }
   } catch (error) {
     console.log(error);
