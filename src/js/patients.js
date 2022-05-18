@@ -37,6 +37,12 @@ async function displayPatients() {
     });
     const data = await res.json();
     spinner.remove();
+
+    // If there's no patients:
+    if (data.patients.length === 0) {
+    }
+
+    // If the doctor has patients display them:
     let avatar = '';
 
     data.patients.forEach((el) => {

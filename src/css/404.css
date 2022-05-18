@@ -1,0 +1,25 @@
+.section-404 {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.content-404 {
+}
+
+.content-404 p {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--accent-bg-color);
+}
+
+.badge-404 {
+  background-color: var(--attention-light-color);
+  color: var(--accent-bg-color);
+  text-align: center;
+  padding: 2rem 3rem;
+  font-size: 5rem;
+  border-radius: 0.4rem;
+  font-weight: bold;
+}
