@@ -1,4 +1,6 @@
 # :stethoscope:Website to view your patients medical history
+  This application is designed for doctors to view and manage their patients medical data.
+  
 ### :construction:work in progress:construction:
 live preview: https://moonlit-dusk-4000da.netlify.app/
 
