@@ -187,6 +187,10 @@ footer {
     margin: 0 1rem 0 0;
   }
 
+  header ul a:first-child {
+    margin-top: 0;
+  }
+
   .burger-menu {
     display: none;
   }
