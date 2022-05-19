@@ -1,5 +1,5 @@
 .hero-section {
-  min-height: 35rem;
+  min-height: 30rem;
   height: calc(100vh - 6rem);
   background: linear-gradient(
       90deg,
