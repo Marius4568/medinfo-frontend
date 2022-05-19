@@ -21,7 +21,8 @@ header {
   height: 6rem;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   background-color: var(--main-bg-color);
-  position: sticky;
+  position: fixed;
+  width: 100%;
   z-index: 2;
   top: 0;
 }
@@ -119,6 +120,7 @@ header nav .mobile-expand {
 
 /*Main*/
 main {
+  margin-top: 6rem;
   min-height: calc(100vh - 12rem);
   height: calc(100vh - 12rem);
 }
