@@ -64,14 +64,13 @@ header ul {
   padding: 0;
   left: 0;
   top: 0;
-  height: calc(100vh + 6rem);
   margin: 0;
   width: 0;
-  min-height: 30rem;
+  min-height: calc(100vh + 6rem);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   list-style: none;
   background-color: var(--main-bg-color);
 }
@@ -96,17 +95,15 @@ header ul a {
   opacity: 0;
 }
 
-/* header ul a:last-child {
+header ul a:first-child {
+  margin-top: 12rem;
+}
 
-  margin-bottom: 6rem;
-
-} */
-
-header nav .mobile-expand {
+/* header nav .mobile-expand {
   opacity: 1;
   width: 100vw;
   transition: width 0.5s, opacity 0.3s;
-}
+} */
 
 .burger-menu-x span:nth-child(1) {
   transform: rotate(45deg) translateY(0.75rem) translateX(0.1rem);
