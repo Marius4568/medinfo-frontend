@@ -64,7 +64,7 @@ header ul {
   padding: 0;
   left: 0;
   top: 0;
-  height: 100vh;
+  height: calc(100vh + 6rem);
   margin: 0;
   width: 0;
   min-height: 30rem;
@@ -117,6 +117,10 @@ header nav .mobile-expand {
 .burger-menu-x span {
   transition: transform 0.5s, opacity 0.1s;
 }
+
+/* .burger-menu-x html {
+  overflow: hidden;
+} */
 
 /*Main*/
 main {
