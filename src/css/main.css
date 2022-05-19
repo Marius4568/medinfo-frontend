@@ -96,6 +96,12 @@ header ul a {
   opacity: 0;
 }
 
+/* header ul a:last-child {
+
+  margin-bottom: 6rem;
+
+} */
+
 header nav .mobile-expand {
   opacity: 1;
   width: 100vw;
@@ -169,7 +175,6 @@ footer {
     opacity: 1 !important;
     position: static;
     width: auto !important;
-    height: 100%;
     min-height: auto;
     display: flex;
     flex-direction: row;
