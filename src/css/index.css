@@ -1,0 +1,76 @@
+.hero-section {
+  min-height: 40rem;
+  height: calc(100vh - 6rem);
+  background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url('../assets/img/homepage-hero.png');
+  background-size: cover;
+  background-repeat: none;
+  background-position: center;
+  display: grid;
+  place-items: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.hero-section h1 {
+  color: rgb(255, 250, 238);
+  font-size: 3.5rem;
+  text-align: center;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  /* background-color: ; */
+  border-radius: 0.4rem;
+  margin: 0;
+}
+
+.hero-section p {
+  color: rgb(255, 250, 238);
+  width: 50%;
+  text-align: center;
+  line-height: 150%;
+  margin: 2rem 0;
+}
+
+.hero-section a {
+  text-decoration: none;
+}
+.hero-section button {
+  cursor: pointer;
+  border-radius: 0.4rem;
+  border: none;
+  background-color: var(--accent-bg-color);
+  color: var(--main-bg-color);
+  padding: 0.7rem 2rem;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.hero-section button:hover {
+  transition: background-color 0.3s;
+  background-color: hsl(168, 93%, 25%);
+}
+
+@media screen and (min-width: 700px) {
+  .hero-section h1 {
+    font-size: 4.5rem;
+  }
+
+  .hero-section p {
+    color: rgb(255, 250, 238);
+    width: 50%;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 150%;
+    margin: 2rem 0;
+  }
+}
