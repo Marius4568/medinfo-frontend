@@ -1,5 +1,6 @@
 import spinningAnimation from './gsap-animations/spinner';
 import config from './config';
+import src from 'gsap/src';
 
 const token = sessionStorage.getItem('userToken');
 
@@ -40,7 +41,8 @@ async function displayPatients() {
 
     // If there's no patients:
     if (data.patients.length === 0) {
-      container.innerHTML = {};
+      container.innerHTML =
+        '<div class="no-patients"> <p>Looks like you have no patients added...</p> <img src="https://res.cloudinary.com/dcqggnzbv/image/upload/v1653037866/Medinfo/icons/sad-icon_bbqanv.svg" alt=""></div> ';
     }
 
     // If the doctor has patients display them:
