@@ -10,7 +10,12 @@ body {
   /* background-image: url("https://www.transparenttextures.com/patterns/notebook-dark.png"); */
   font-family: 'Inria Sans', sans-serif;
   overflow-x: hidden;
+  height: auto;
 }
+
+/* .body-nav-open {
+  overflow-y: hidden;
+} */
 
 .container {
   padding: 0 2.5rem;
@@ -23,7 +28,7 @@ header {
   background-color: var(--main-bg-color);
   position: fixed;
   width: 100%;
-  z-index: 2;
+  z-index: 100;
   top: 0;
 }
 
@@ -65,6 +70,7 @@ header ul {
   left: 0;
   top: 0;
   margin: 0;
+  margin-bottom: 3rem;
   width: 0;
   min-height: calc(100vh + 6rem);
   display: flex;
@@ -73,6 +79,8 @@ header ul {
   justify-content: flex-start;
   list-style: none;
   background-color: var(--main-bg-color);
+  height: 100vh;
+  overflow-y: auto;
 }
 
 /* TODO: wrap menu around wrapper, give wrapper currrent ul properties 
@@ -97,6 +105,10 @@ header ul a {
 
 header ul a:first-child {
   margin-top: 12rem;
+}
+
+header ul a:last-child {
+  margin-bottom: 12rem;
 }
 
 /* header nav .mobile-expand {
@@ -168,16 +180,23 @@ footer {
 }
 
 @media screen and (min-width: 700px) {
+  /* body {
+    overflow-y: visible !important;
+  } */
+
   header nav ul {
     opacity: 1 !important;
     position: static;
     width: auto !important;
     min-height: auto;
+    height: auto;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     background-color: transparent;
+    margin: 0;
+    overflow: visible;
   }
 
   header ul a {
@@ -189,6 +208,10 @@ footer {
 
   header ul a:first-child {
     margin-top: 0;
+  }
+
+  header ul a:last-child {
+    margin-bottom: 0;
   }
 
   .burger-menu {

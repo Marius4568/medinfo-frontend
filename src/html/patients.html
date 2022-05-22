@@ -21,9 +21,103 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/form.css" />
     <link rel="stylesheet" href="../css/patients.css" />
   </head>
   <body>
+    <div class="add-a-patient-modal">
+      <div class="add-a-patient-form-wrap">
+        <div class="esc-form-btn">
+          <span></span>
+          <span></span>
+        </div>
+        <p>Add a patient:</p>
+        <form name="add_patient_form">
+          <div class="ap-first-name-input-wrap">
+            <label for="APfirstNameInput">First name:</label>
+            <input
+              type="text"
+              name=""
+              id="APfirstNameInput"
+              placeholder="John"
+              required
+            />
+          </div>
+          <div class="ap-last-name-input-wrap">
+            <label for="APlastNameInput">Last name:</label>
+            <input
+              type="text"
+              name=""
+              id="APlastNameInput"
+              placeholder="Snow"
+              required
+            />
+          </div>
+          <div class="ap-birth-date-input-wrap">
+            <label for="APbirthDateInput">Birth date:</label>
+            <input
+              type="date"
+              name=""
+              id="APbirthDateInput"
+              placeholder="1985-10-25"
+              required
+            />
+          </div>
+          <div class="ap-gender-input-wrap">
+            <label for="APgenderInput">Select your gender:</label>
+            <select name="genderInput" id="APgenderInput">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="ap-phone-number-input-wrap">
+            <label for="APphoneNumberInput">Phone number:</label>
+            <input
+              type="tel"
+              name=""
+              id="APphoneNumberInput"
+              placeholder="+37062783391"
+              required
+            />
+          </div>
+          <div class="ap-email-input-wrap">
+            <label for="APemailInput">Email:</label>
+            <input
+              type="email"
+              name=""
+              id="APemailInput"
+              placeholder="johnnycook@bok.com"
+              required
+            />
+          </div>
+          <div class="ap-photo-input-wrap">
+            <label for="APphotoInput">Photo link (optional):</label>
+            <input
+              type="text"
+              name=""
+              id="APphotoInput"
+              placeholder="https://www.google.com/image.jpg"
+              required
+            />
+          </div>
+
+          <div class="ap-identity-code-input-wrap">
+            <label for="APidentityCodeInput">Identity code:</label>
+            <input
+              type="text"
+              name=""
+              id="APidentityCodeInput"
+              placeholder="39820477826"
+              required
+            />
+          </div>
+
+          <div class="add-patient-submit-wrap">
+            <button type="submit">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
     <header>
       <div class="container">
         <a href="./index.html"

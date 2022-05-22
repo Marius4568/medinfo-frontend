@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "gsap": "^3.10.4",
-    "parcel": "^2.5.0"
+    "parcel": "^2.5.0",
+    "validator": "^13.7.0"
   }
 }

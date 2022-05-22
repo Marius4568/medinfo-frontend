@@ -1,7 +1,7 @@
 // import gsap from 'gsap';
 
 import formAnimations from './gsap-animations/formAnimations';
-
+import postAsync from './asyncFuncs';
 import config from './config';
 
 const submitBtn = document.querySelector('button[type = submit]');
@@ -26,16 +26,13 @@ form.addEventListener('submit', async (ev) => {
   if (!ev.detail || ev.detail === 1) {
     formAnimations.buttonspinnerInit(submitBtn);
   }
-
   try {
-    const res = await fetch(`${config.baseFetchLink}user/login`, {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(userDetails),
-    });
-    const data = await res.json();
+    const data = await postAsync(
+      `${config.baseFetchLink}user/login`,
+      userDetails,
+      false,
+    );
+
     if (data.token) {
       sessionStorage.setItem('userToken', data.token);
       window.location.href = '/patients.html';

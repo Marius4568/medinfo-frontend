@@ -6,6 +6,7 @@
   justify-content: center;
   height: 6rem;
   position: relative;
+  z-index: 5;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -34,7 +35,6 @@
   position: absolute;
   height: 1rem;
   right: -1.3rem;
-  /* transition: opacity 0.5s; */
 }
 
 .search-input-wrap input[type='text'] {
@@ -51,11 +51,6 @@
   outline: none;
 }
 
-/* .search-input-wrap input[type='text']:focus + .search-icon {
-  transition: opacity 0.5s;
-  opacity: 0;
-} */
-
 .add-patient-btn {
   position: absolute;
   height: 2.5rem;
@@ -64,21 +59,11 @@
   bottom: -2.5rem;
   border-bottom-left-radius: 0.4rem;
   border-bottom-right-radius: 0.4rem;
-  /* right: 0; */
-  /* border-top-left-radius: 0.4rem;
-  border-bottom-left-radius: 0.4rem; */
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  /* transform: translateX(1rem);
-  transition: transform 0.5s; */
 }
-
-/* .add-patient-btn:hover {
-  transition: transform 0.5s;
-  transform: translateX(0);
-} */
 
 .cross-icon {
   background-color: var(--main-bg-color);
@@ -98,7 +83,76 @@
   color: var(--main-bg-color);
   margin: 0 2rem 0 0;
 }
+/* esc -------------------------------*/
+.esc-form-btn {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  height: 2rem;
+  width: 2rem;
+  font-size: 2rem;
+  z-index: 102;
+  opacity: 0;
+  cursor: pointer;
+  display: none;
+  opacity: 0;
+}
 
+.esc-form-btn span {
+  position: absolute;
+  height: 0.3rem;
+  width: 2rem;
+  border-radius: 0.2rem;
+  background-color: var(--main-bg-color);
+}
+
+.esc-form-btn span:first-child {
+  transform: rotate(45deg);
+}
+
+.esc-form-btn span:last-child {
+  transform: rotate(-45deg);
+}
+
+.add-a-patient-modal {
+  background-color: var(--accent-bg-color);
+  position: fixed;
+  top: 0;
+  z-index: 101;
+  height: 0;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-a-patient-form-wrap {
+  overflow: auto;
+  width: 100%;
+  position: relative;
+}
+
+form[name='add_patient_form'] {
+  min-width: 15rem;
+  width: 40vw;
+  max-width: 35rem;
+  opacity: 0;
+  display: none;
+  margin: auto;
+  color: var(--main-bg-color);
+  padding: 3rem 1rem 3rem 1rem;
+}
+
+.add-a-patient-form-wrap p {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--main-bg-color);
+  margin: 6rem 0 0 0;
+  display: none;
+  opacity: 0;
+}
+
+/* esc -------------------------------*/
 .no-patients {
   color: var(--accent-bg-color);
 
@@ -130,6 +184,7 @@
   gap: 5rem;
   position: relative;
   min-height: calc(100% - 10rem);
+  margin: 6rem 0 5rem 0;
 }
 .patient-card {
   background: linear-gradient(
@@ -144,14 +199,6 @@
   justify-content: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   padding: 3rem 1.2rem;
-}
-
-.patient-card:first-child {
-  margin-top: 3rem;
-}
-
-.patient-card:last-child {
-  margin-bottom: 5rem;
 }
 
 .patient-content {

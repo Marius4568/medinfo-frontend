@@ -126,3 +126,14 @@ form div button .spinner {
   color: white;
   text-align: center;
 }
+
+form[name='add_patient_form'] .form-flash-message-msg {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--main-bg-color);
+  border-radius: 0.4rem;
+  position: relative;
+  top: -1rem;
+  color: var(--accent-bg-color);
+  text-align: center;
+}
