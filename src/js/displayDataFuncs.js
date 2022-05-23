@@ -10,8 +10,8 @@ export default {
   displayPatients: async (link) => {
     try {
       const container = document.querySelector('.patients');
-
       container.innerHTML = '';
+
       // Loading animation handling
       const spinner = document.createElement('div');
       spinner.classList.add('page-spinner');
@@ -23,7 +23,7 @@ export default {
       const data = await fetchFunction(link, '', 'GET', true);
 
       if (document.querySelector('.page-spinner')) {
-        document.querySelector('.page-spinner').remove();
+        container.innerHTML = '';
       }
       console.log(data);
       // If there's no patients:
@@ -36,6 +36,7 @@ export default {
       // If the patient has a photo assigned to him, leave avatar blank
       let avatar = '';
       //   If the doctor has patients display them:
+      container.innerHTML = '';
       data.patients.forEach((el) => {
         avatar = el.photo;
         if (!isImage(el.photo)) {
