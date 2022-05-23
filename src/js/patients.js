@@ -132,6 +132,7 @@ addPatientForm.addEventListener('submit', async (ev) => {
     displayDataFuncs.displayPatients(
       `${config.baseFetchLink}patient/get_patients`,
     );
+    addPatientTL.reverse(1);
   }
 
   formAnimations.formMessageAnimation(
