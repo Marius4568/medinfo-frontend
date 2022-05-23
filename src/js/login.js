@@ -1,18 +1,15 @@
 // import gsap from 'gsap';
 
 import formAnimations from './gsap-animations/formAnimations';
-import postAsync from './asyncFuncs';
+import fetchFunction from './asyncFuncs';
 import config from './config';
+import redirectBasedOnToken from './redirectBasedOnToken';
 
 const submitBtn = document.querySelector('button[type = submit]');
 const emailInput = document.querySelector('input[type = email]');
 const passwordInput = document.querySelector('input[type = password]');
 
-const token = sessionStorage.getItem('userToken');
-
-if (token) {
-  window.location.href = 'patients.html';
-}
+redirectBasedOnToken.redirectIfAuthed('patients.html');
 
 const form = document.forms.login_form;
 
@@ -27,9 +24,10 @@ form.addEventListener('submit', async (ev) => {
     formAnimations.buttonspinnerInit(submitBtn);
   }
   try {
-    const data = await postAsync(
+    const data = await fetchFunction(
       `${config.baseFetchLink}user/login`,
       userDetails,
+      'POST',
       false,
     );
 

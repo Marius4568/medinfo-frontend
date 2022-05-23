@@ -1,6 +1,7 @@
 import formAnimations from './gsap-animations/formAnimations';
-
+import fetchFunction from './asyncFuncs';
 import config from './config';
+import redirectBasedOnToken from './redirectBasedOnToken';
 
 const submitBtn = document.querySelector('button[type = submit]');
 const emailInput = document.querySelector('input[type = email]');
@@ -8,11 +9,7 @@ const nameInput = document.querySelector('input[type = text]');
 
 const passwordInput = document.querySelector('input[type = password]');
 
-const token = sessionStorage.getItem('userToken');
-
-if (token) {
-  window.location.href = 'patients.html';
-}
+redirectBasedOnToken.redirectIfAuthed('patients.html');
 
 const form = document.forms.login_form;
 
@@ -29,14 +26,13 @@ form.addEventListener('submit', async (ev) => {
   }
 
   try {
-    const res = await fetch(`${config.baseFetchLink}user/register`, {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(userDetails),
-    });
-    const data = await res.json();
+    const data = await fetchFunction(
+      `${config.baseFetchLink}user/register`,
+      userDetails,
+      'POST',
+      false,
+    );
+
     if (data.token) {
       sessionStorage.setItem('userToken', data.token);
       window.location.href = '/patients.html';

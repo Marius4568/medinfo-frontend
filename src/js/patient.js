@@ -1,21 +1,18 @@
 import config from './config';
+import fetchFunction from './asyncFuncs';
 
+// Url params passed from the previous page
 const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
 
-async function gettr() {
-  const res = await fetch(
+async function displayPatientInfo() {
+  const data = await fetchFunction(
     `${config.baseFetchLink}patient/get_patient?patient_id=${params.id}`,
-    {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${sessionStorage.getItem('userToken')}`,
-        'Content-type': 'application/json',
-      },
-    },
+    '',
+    'GET',
+    true,
   );
-  const data = await res.json();
 
   console.log(data.patient[0]);
 
@@ -24,4 +21,4 @@ async function gettr() {
   ).textContent = `${data.patient[0].first_name} ${data.patient[0].last_name}`;
 }
 
-gettr();
+displayPatientInfo();

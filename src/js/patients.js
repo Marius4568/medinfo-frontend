@@ -1,21 +1,15 @@
 import spinningAnimation from './gsap-animations/spinner';
 import config from './config';
-import postAsync from './asyncFuncs';
+import fetchFunction from './asyncFuncs';
 import src from 'gsap/src';
 import gsap from 'gsap';
 import formAnimations from './gsap-animations/formAnimations';
 import gsapToggle from '../js/gsap-animations/general';
 import validator from 'validator';
+import redirectBasedOnToken from './redirectBasedOnToken';
+import displayDataFuncs from './displayDataFuncs';
 
-const token = sessionStorage.getItem('userToken');
-
-if (!token) {
-  window.location.replace('login.html');
-}
-
-function isImage(url) {
-  return /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
-}
+redirectBasedOnToken.redirectIfNotAuthed('login.html');
 
 const logoutBtn = document.querySelector('.logout');
 
@@ -26,76 +20,8 @@ logoutBtn.addEventListener('click', () => {
   }
 });
 
-async function displayPatients() {
-  try {
-    const container = document.querySelector('.patients');
-    container.innerHTML = '';
-    const spinner = document.createElement('div');
-    spinner.classList.add('page-spinner');
-    spinningAnimation(spinner);
-    container.append(spinner);
-    const res = await fetch(`${config.baseFetchLink}patient/get_patients`, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${sessionStorage.getItem('userToken')}`,
-        'Content-type': 'application/json',
-      },
-    });
-    const data = await res.json();
-    if (document.querySelector('.page-spinner')) {
-      document.querySelector('.page-spinner').remove();
-    }
-
-    // If there's no patients:
-    if (data.patients.length === 0) {
-      container.innerHTML =
-        '<div class="no-patients"> <p>Looks like you have no patients added...</p> <img src="https://res.cloudinary.com/dcqggnzbv/image/upload/v1653037866/Medinfo/icons/sad-icon_bbqanv.svg" alt=""></div> ';
-    }
-
-    // If the doctor has patients display them:
-    let avatar = '';
-
-    data.patients.forEach((el) => {
-      avatar = el.photo;
-      if (!isImage(el.photo)) {
-        if (el.gender === 'male') {
-          avatar =
-            'https://res.cloudinary.com/dcqggnzbv/image/upload/v1652801035/Medinfo/img/male-avatar_tjrozp.svg';
-        } else if (el.gender === 'female') {
-          avatar =
-            'https://res.cloudinary.com/dcqggnzbv/image/upload/v1652801017/Medinfo/img/female-avatar_fzfodt.svg';
-        }
-      }
-      const card = `
-      <div  class="patient-card">
-      <div class="patient-content">
-        <div class="patient-info">
-          <img src="${avatar}" class="patient-picture"></img>
-          <p class="patient-name">${el.first_name} ${el.last_name}</p>
-          <p class="patient-birthdate">${el.birth_date}</p>
-          <p class="patient-email">${el.email}</p>
-        </div>
-        <div class="patient-action-btns">
-          <button data-id="${el.patient_id}" class="view-log-btn">View logs</button
-          ><button class="delete-btn">Delete</button>
-        </div>
-      </div>
-    </div>
-      `;
-
-      container.innerHTML += card;
-    });
-    document.querySelectorAll('.view-log-btn').forEach((el) => {
-      el.addEventListener('click', () => {
-        window.location.href = `/patient.html?id=${el.dataset.id}`;
-      });
-    });
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-displayPatients();
+// Initially display patients
+displayDataFuncs.displayPatients(`${config.baseFetchLink}patient/get_patients`);
 
 const addPatientBtn = document.querySelector('.add-patient-btn');
 const escapeBtn = document.querySelector('.esc-form-btn');
@@ -196,13 +122,16 @@ addPatientForm.addEventListener('submit', async (ev) => {
     document.querySelector('#APphoneNumberInput').value,
   );
 
-  const data = await postAsync(
+  const data = await fetchFunction(
     `${config.baseFetchLink}patient/add`,
     addPatientData,
+    'POST',
     true,
   );
   if ((data.msg = 'Patient added')) {
-    displayPatients();
+    displayDataFuncs.displayPatients(
+      `${config.baseFetchLink}patient/get_patients`,
+    );
   }
 
   formAnimations.formMessageAnimation(
@@ -212,4 +141,20 @@ addPatientForm.addEventListener('submit', async (ev) => {
   );
   console.log(data);
   console.log(isAfter1910, isBeforeCurDate, validPhoneNumber);
+});
+
+const patientSearch = document.getElementById('searchPatientInput');
+
+let timer;
+
+patientSearch.addEventListener('keyup', (ev) => {
+  const searchText = ev.currentTarget.value;
+
+  clearTimeout(timer);
+
+  timer = setTimeout(() => {
+    displayDataFuncs.displayPatients(
+      `${config.baseFetchLink}patient/search?patient_search=${searchText}`,
+    );
+  }, 500);
 });

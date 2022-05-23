@@ -1,4 +1,9 @@
-export default async function postAsync(url, body, needAuth) {
+export default async function fetchFunction(
+  url,
+  reqBody,
+  requestType,
+  needAuth,
+) {
   let headers;
   if (needAuth) {
     headers = {
@@ -10,13 +15,19 @@ export default async function postAsync(url, body, needAuth) {
       'Content-type': 'application/json',
     };
   }
+  // Optional fetch request body
+  const fetchBody = {
+    method: requestType,
+    headers,
+  };
+
+  if (reqBody) fetchBody.body = JSON.stringify(reqBody);
+
   try {
-    const res = await fetch(url, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify(body),
-    });
+    const res = await fetch(url, fetchBody);
+
     const data = await res.json();
+
     return data;
   } catch (err) {
     return err;
