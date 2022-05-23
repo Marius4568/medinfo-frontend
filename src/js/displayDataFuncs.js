@@ -24,7 +24,8 @@ export default {
       if (document.querySelector('.page-spinner')) {
         container.innerHTML = '';
       }
-      console.log(data);
+
+      container.innerHTML = '';
       // If there's no patients:
       if (data.patients.length === 0) {
         container.innerHTML =
@@ -35,7 +36,7 @@ export default {
       // If the patient has a photo assigned to him, leave avatar blank
       let avatar = '';
       //   If the doctor has patients display them:
-      container.innerHTML = '';
+
       data.patients.forEach((el) => {
         avatar = el.photo;
         if (!isImage(el.photo)) {
