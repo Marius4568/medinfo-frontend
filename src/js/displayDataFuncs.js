@@ -1,6 +1,5 @@
 import spinningAnimation from './gsap-animations/spinner';
 import fetchFunction from './asyncFuncs';
-import gsap from 'gsap';
 
 function isImage(url) {
   return /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
@@ -29,7 +28,7 @@ export default {
       // If there's no patients:
       if (data.patients.length === 0) {
         container.innerHTML =
-          '<div class="no-patients"> <p>Looks like there are no patients here...</p> <img src="https://res.cloudinary.com/dcqggnzbv/image/upload/v1653037866/Medinfo/icons/sad-icon_bbqanv.svg" alt=""></div> ';
+          '<div class="no-patients"> <p>Looks like there are no patients here...</p> <img src="https://res.cloudinary.com/dcqggnzbv/image/upload/v1653037866/Medinfo/icons/sad-icon_bbqanv.svg" alt="sad face icon"></div> ';
       }
 
       // Change the default avatar link based on patient's gender
@@ -52,7 +51,7 @@ export default {
                 <div  class="patient-card">
                 <div class="patient-content">
                   <div class="patient-info">
-                    <img src="${avatar}" class="patient-picture"></img>
+                    <img src="${avatar}" class="patient-picture" alt="user avatar picture"></img>
                     <p class="patient-name">${el.first_name} ${el.last_name}</p>
                     <p class="patient-birthdate">${el.birth_date}</p>
                     <p class="patient-email">${el.email}</p>
