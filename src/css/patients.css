@@ -1,5 +1,5 @@
 .search-add-patient {
-  margin-bottom: 3rem;
+  /* margin-bottom: 3rem; */
   padding: 1rem 0;
   display: flex;
   align-items: center;
@@ -152,6 +152,145 @@ form[name='add_patient_form'] {
   opacity: 0;
 }
 
+form[name='add_patient_form'] div {
+  margin-bottom: 2rem;
+}
+
+form[name='add_patient_form'] div:last-child {
+  margin-top: 4rem;
+}
+
+form[name='add_patient_form'] div input {
+  font-size: 0.9rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+#APgenderInput {
+  margin-left: 0.5rem;
+}
+
+.add-a-patient-form-wrap form label {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+#APfirstNameInput,
+#APlastNameInput,
+#APbirthDateInput,
+#APphoneNumberInput,
+#APemailInput,
+#APphotoInput,
+#APidentityCodeInput,
+#APgenderInput {
+  background-color: transparent;
+  border: none;
+  border-bottom: 0.1rem solid var(--main-bg-color);
+  color: var(--main-bg-color);
+  padding-bottom: 0.2rem;
+}
+
+#APbirthDateInput::-webkit-datetime-edit-text {
+  color: var(--main-bg-color);
+}
+#APbirthDateInput::-webkit-datetime-edit-month-field {
+  color: var(--main-bg-color);
+}
+#APbirthDateInput::-webkit-datetime-edit-day-field {
+  color: var(--main-bg-color);
+}
+#APbirthDateInput::-webkit-datetime-edit-year-field {
+  color: var(--main-bg-color);
+}
+#APbirthDateInput::-webkit-inner-spin-button {
+  display: none;
+}
+#APbirthDateInput::-webkit-calendar-picker-indicator {
+  background: url('../assets/icons/date-picker-light-icon.svg');
+  background-size: 70%;
+  background-repeat: no-repeat;
+}
+
+.gender-radio-btn-wrap {
+  display: flex;
+}
+
+form[name='add_patient_form'] .ap-gender-input-wrap div {
+  margin: 0;
+}
+
+form[name='add_patient_form'] .ap-gender-input-wrap legend {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+form[name='add_patient_form'] .ap-gender-input-wrap div:first-child {
+  margin-right: 1rem;
+}
+
+form[name='add_patient_form'] .ap-gender-input-wrap label {
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
+form[name='add_patient_form'] .ap-gender-input-wrap div input {
+  width: auto;
+  margin: 0;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 0.15em solid currentColor;
+  border-radius: 50%;
+  position: relative;
+}
+
+form[name='add_patient_form'] .ap-gender-input-wrap div input::after {
+  content: '';
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background-color: var(--accent-bg-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+form[name='add_patient_form'] .ap-gender-input-wrap div input:checked:after {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.add-a-patient-form-wrap form input:focus {
+  outline: none;
+}
+
+.add-a-patient-form-wrap form input::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 0.9rem;
+}
+
+.add-patient-submit-wrap button {
+  cursor: pointer;
+  border-radius: 0.4rem;
+  border: none;
+  background-color: var(--main-bg-color);
+  color: var(--accent-bg-color);
+  padding: 0.7rem 4rem;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
+.add-patient-submit-wrap button:hover {
+  transition: background-color 0.3s;
+  background-color: hsl(42, 100%, 93%);
+}
 /* esc -------------------------------*/
 .no-patients {
   color: var(--accent-bg-color);
@@ -184,7 +323,8 @@ form[name='add_patient_form'] {
   gap: 5rem;
   position: relative;
   min-height: calc(100% - 10rem);
-  margin: 6rem 0 5rem 0;
+  margin: 0;
+  padding: 5rem 0;
 }
 .patient-card {
   background: linear-gradient(

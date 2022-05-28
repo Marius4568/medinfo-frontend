@@ -64,11 +64,28 @@
             />
           </div>
           <div class="ap-gender-input-wrap">
-            <label for="APgenderInput">Gender:</label>
-            <select name="genderInput" id="APgenderInput">
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
+            <legend>Select patient's gender:</legend>
+            <div class="gender-radio-btn-wrap">
+              <div>
+                <input
+                  type="radio"
+                  id="maleRadioBtn"
+                  name="gender"
+                  value="Male"
+                  checked
+                />
+                <label for="maleRadioBtn">Male</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="femaleRadioBtn"
+                  name="gender"
+                  value="Female"
+                />
+                <label for="femaleRadioBtn">Female</label>
+              </div>
+            </div>
           </div>
           <div class="ap-phone-number-input-wrap">
             <label for="APphoneNumberInput">Phone number:</label>

@@ -102,7 +102,7 @@ addPatientForm.addEventListener('submit', async (ev) => {
     first_name: document.getElementById('APfirstNameInput').value,
     last_name: document.getElementById('APlastNameInput').value,
     birth_date: document.getElementById('APbirthDateInput').value,
-    gender: document.getElementById('APgenderInput').value,
+    gender: document.querySelector('input[name="gender"]:checked').value,
     phone_number: document.getElementById('APphoneNumberInput').value,
     email: document.getElementById('APemailInput').value,
     photo: document.getElementById('APphotoInput').value,
