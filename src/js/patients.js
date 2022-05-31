@@ -122,13 +122,16 @@ addPatientForm.addEventListener('submit', async (ev) => {
     document.querySelector('#APphoneNumberInput').value,
   );
 
+  formAnimations.buttonspinnerInit(document.querySelector('form button'));
+
   const data = await fetchFunction(
     `${config.baseFetchLink}patient/add`,
     addPatientData,
     'POST',
     true,
   );
-  if ((data.msg = 'Patient added')) {
+  formAnimations.buttonspinnerRemove(document.querySelector('form button'));
+  if (data.msg === 'Patient added') {
     displayDataFuncs.displayPatients(
       `${config.baseFetchLink}patient/get_patients`,
     );

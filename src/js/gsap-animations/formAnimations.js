@@ -31,6 +31,7 @@ export default {
         const tl = gsap.timeline();
         tl.to(formFlashMessage, {
           height: 0,
+          opacity: 0,
           padding: 0,
         });
         tl.call(() => formFlashMessage.remove());
@@ -39,7 +40,7 @@ export default {
   },
   buttonspinnerInit: (parent) => {
     // Don't let the user create multiple spinners
-    if (document.querySelector('.spinner')) {
+    if (document.querySelector('form .spinner')) {
       return;
     }
     const spinner = document.createElement('div');

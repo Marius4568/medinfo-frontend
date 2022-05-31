@@ -38,12 +38,13 @@ export default {
       //   If the doctor has patients display them:
 
       data.patients.forEach((el) => {
+        console.log(el.photo, el.gender, !isImage(el.photo));
         avatar = el.photo;
         if (!isImage(el.photo)) {
-          if (el.gender === 'male') {
+          if (el.gender.toLowerCase() === 'male') {
             avatar =
               'https://res.cloudinary.com/dcqggnzbv/image/upload/v1652801035/Medinfo/img/male-avatar_tjrozp.svg';
-          } else if (el.gender === 'female') {
+          } else if (el.gender.toLowerCase() === 'female') {
             avatar =
               'https://res.cloudinary.com/dcqggnzbv/image/upload/v1652801017/Medinfo/img/female-avatar_fzfodt.svg';
           }

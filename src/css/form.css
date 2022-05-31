@@ -105,7 +105,7 @@ form div button .spinner {
   margin-left: 1rem;
 }
 
-.form-flash-message-error {
+form .form-flash-message-error {
   width: 100%;
   box-sizing: border-box;
   background-color: #f27b74;
@@ -116,18 +116,7 @@ form div button .spinner {
   text-align: center;
 }
 
-.form-flash-message-msg {
-  width: 100%;
-  box-sizing: border-box;
-  background-color: var(--accent-bg-color);
-  border-radius: 0.4rem;
-  position: relative;
-  top: -1rem;
-  color: white;
-  text-align: center;
-}
-
-form[name='add_patient_form'] .form-flash-message-msg {
+form .form-flash-message-msg {
   width: 100%;
   box-sizing: border-box;
   background-color: var(--main-bg-color);
@@ -135,5 +124,41 @@ form[name='add_patient_form'] .form-flash-message-msg {
   position: relative;
   top: -1rem;
   color: var(--accent-bg-color);
+  text-align: center;
+}
+
+form[name='add_patient_form'] .form-flash-message-error {
+  min-width: 15rem;
+  width: 40vw;
+  max-width: 35rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  background-color: #f27b74;
+  border-radius: 0;
+  border-bottom-left-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+  z-index: 150;
+  position: fixed;
+  top: 0;
+  margin: auto;
+  color: #fff;
+  text-align: center;
+}
+
+form[name='add_patient_form'] .form-flash-message-msg {
+  min-width: 15rem;
+  width: 40vw;
+  max-width: 35rem;
+  padding: 0 1rem;
+  margin: auto;
+  box-sizing: border-box;
+  background-color: var(--accent-bg-color);
+  border-radius: 0;
+  border-bottom-left-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+  z-index: 150;
+  position: fixed;
+  top: 0;
+  color: white;
   text-align: center;
 }

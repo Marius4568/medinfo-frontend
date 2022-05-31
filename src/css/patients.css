@@ -156,13 +156,13 @@ form[name='add_patient_form'] div {
   margin-bottom: 2rem;
 }
 
-form[name='add_patient_form'] div:last-child {
+form[name='add_patient_form'] .add-patient-submit-wrap {
   margin-top: 4rem;
 }
 
 form[name='add_patient_form'] div input {
   font-size: 0.9rem;
-  width: 100%;
+  width: calc(100% - 0.5rem);
   margin-top: 1rem;
 }
 #APgenderInput {
