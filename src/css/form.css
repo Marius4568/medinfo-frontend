@@ -119,11 +119,11 @@ form .form-flash-message-error {
 form .form-flash-message-msg {
   width: 100%;
   box-sizing: border-box;
-  background-color: var(--main-bg-color);
+  background-color: var(--accent-bg-color);
   border-radius: 0.4rem;
   position: relative;
   top: -1rem;
-  color: var(--accent-bg-color);
+  color: #fff;
   text-align: center;
 }
 
