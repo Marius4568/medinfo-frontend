@@ -20,8 +20,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/form.css" />
+
+    <link rel="stylesheet" href="../scss/register.scss" />
   </head>
   <body>
     <header>
@@ -44,8 +44,8 @@
       <div class="page-title">
         <h1>Register</h1>
       </div>
-      <section class="login-section">
-        <form name="login_form">
+      <section class="register-section">
+        <form name="register_form" class="medinfo-form">
           <div class="name-input-wrap">
             <label for="nameInput">Full name:</label>
             <input
@@ -78,7 +78,7 @@
               required
             />
           </div>
-          <div class="login-wrap">
+          <div class="register-wrap">
             <button type="submit">REGISTER</button>
             <p>Already have an account? <a href="./login.html">Log in!</a></p>
           </div>

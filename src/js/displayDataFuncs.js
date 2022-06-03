@@ -1,9 +1,14 @@
+import gsap from 'gsap';
 import spinningAnimation from './gsap-animations/spinner';
 import fetchFunction from './asyncFuncs';
+import config from './config';
 
 function isImage(url) {
   return /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
 }
+
+const noPatientsHTML =
+  '<div class="no-patients"> <p>Looks like there are no patients here...</p> <img src="https://res.cloudinary.com/dcqggnzbv/image/upload/v1653037866/Medinfo/icons/sad-icon_bbqanv.svg" alt="sad face icon"></div> ';
 
 export default {
   displayPatients: async (link) => {
@@ -28,8 +33,7 @@ export default {
       container.innerHTML = '';
       // If there's no patients:
       if (data.patients.length === 0) {
-        container.innerHTML =
-          '<div class="no-patients"> <p>Looks like there are no patients here...</p> <img src="https://res.cloudinary.com/dcqggnzbv/image/upload/v1653037866/Medinfo/icons/sad-icon_bbqanv.svg" alt="sad face icon"></div> ';
+        container.innerHTML = noPatientsHTML;
       }
 
       // Change the default avatar link based on patient's gender
@@ -55,12 +59,18 @@ export default {
                   <div class="patient-info">
                     <img src="${avatar}" class="patient-picture" alt="user avatar picture"></img>
                     <p class="patient-name">${el.first_name} ${el.last_name}</p>
-                    <p class="patient-birthdate">${el.birth_date}</p>
+                    <p class="patient-birthdate">${new Date(
+                      el.birth_date,
+                    ).toLocaleDateString()}</p>
                     <p class="patient-email">${el.email}</p>
                   </div>
                   <div class="patient-action-btns">
-                    <button data-id="${el.patient_id}" class="view-log-btn">View logs</button
-                    ><button class="delete-btn">Delete</button>
+                    <button data-id="${
+                      el.patient_id
+                    }" class="view-log-btn">View logs</button
+                    ><button data-id="${
+                      el.patient_id
+                    }" class="delete-btn">Delete</button>
                   </div>
                 </div>
               </div>
@@ -71,6 +81,30 @@ export default {
       document.querySelectorAll('.view-log-btn').forEach((el) => {
         el.addEventListener('click', () => {
           window.location.href = `/patient.html?id=${el.dataset.id}`;
+        });
+      });
+
+      document.querySelectorAll('.delete-btn').forEach((el) => {
+        el.addEventListener('click', async () => {
+          const card = el.parentElement.parentElement.parentElement;
+          const tl = gsap.timeline();
+          tl.to(card, {
+            opacity: 0,
+          });
+          tl.call(() => {
+            card.remove();
+            if (container.children.length === 0) {
+              container.innerHTML = noPatientsHTML;
+            }
+          });
+
+          const res = await fetchFunction(
+            `${config.baseFetchLink}patient/delete`,
+            { patient_id: el.dataset.id },
+            'DELETE',
+            true,
+          );
+          console.log(res);
         });
       });
     } catch (error) {

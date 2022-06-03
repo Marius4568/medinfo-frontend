@@ -22,7 +22,6 @@ export default async function fetchFunction(
   };
 
   if (reqBody) fetchBody.body = JSON.stringify(reqBody);
-
   try {
     const res = await fetch(url, fetchBody);
 

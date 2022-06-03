@@ -1,0 +1,172 @@
+@use './colors.scss';
+
+.add-a-patient-form-wrap {
+  overflow: auto;
+  width: 100%;
+  position: relative;
+}
+
+form[name='add_patient_form'] {
+  display: none;
+  opacity: 0;
+  margin: auto;
+  color: colors.$main-bg-color;
+  padding: 3rem 1rem 3rem 1rem;
+}
+
+.add-a-patient-form-wrap p {
+  text-align: center;
+  font-size: 2.5rem;
+  color: colors.$main-bg-color;
+  margin: 6rem 0 0 0;
+  display: none;
+  opacity: 0;
+}
+
+form[name='add_patient_form'] .add-patient-submit-wrap {
+  margin-top: 4rem;
+}
+
+form[name='add_patient_form'] div input {
+  font-size: 0.9rem;
+  width: calc(100% - 0.5rem);
+}
+
+#APgenderInput {
+  margin-left: 0.5rem;
+}
+
+form[name='add_patient_form'] label {
+  color: colors.$main-bg-color;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+#APfirstNameInput,
+#APlastNameInput,
+#APbirthDateInput,
+#APphoneNumberInput,
+#APemailInput,
+#APphotoInput,
+#APidentityCodeInput,
+#APgenderInput {
+  background-color: transparent;
+  border: none;
+  border-bottom: 0.1rem solid colors.$main-bg-color;
+  color: colors.$main-bg-color;
+  padding-bottom: 0.2rem;
+}
+
+#APbirthDateInput::-webkit-datetime-edit-text {
+  color: colors.$main-bg-color;
+}
+#APbirthDateInput::-webkit-datetime-edit-month-field {
+  color: colors.$main-bg-color;
+}
+#APbirthDateInput::-webkit-datetime-edit-day-field {
+  color: colors.$main-bg-color;
+}
+#APbirthDateInput::-webkit-datetime-edit-year-field {
+  color: colors.$main-bg-color;
+}
+#APbirthDateInput::-webkit-inner-spin-button {
+  display: none;
+}
+#APbirthDateInput::-webkit-calendar-picker-indicator {
+  background: url('../assets/icons/date-picker-light-icon.svg');
+  background-size: 70%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+form[name='add_patient_form'] .ap-gender-input-wrap {
+  display: block;
+  margin: 0;
+}
+
+form[name='add_patient_form'] .ap-gender-input-wrap legend {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+form[name='add_patient_form'] .gender-radio-btn-wrap {
+  display: flex;
+  flex-direction: row;
+}
+
+form[name='add_patient_form'] .gender-radio-btn-wrap div {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+
+form[name='add_patient_form'] .ap-gender-input-wrap div:first-child {
+  margin-right: 1rem;
+}
+
+form[name='add_patient_form'] .ap-gender-input-wrap label {
+  font-size: 0.9rem;
+  margin: 0 0 0 0.5rem;
+}
+
+form[name='add_patient_form'] .ap-gender-input-wrap div input {
+  width: auto;
+  margin: 0;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 0.15em solid currentColor;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+form[name='add_patient_form'] .ap-gender-input-wrap div input::after {
+  content: '';
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background-color: colors.$accent-bg-color;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+form[name='add_patient_form'] .ap-gender-input-wrap div input:checked:after {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.add-a-patient-form-wrap form input:focus {
+  outline: none;
+}
+
+.add-a-patient-form-wrap form input::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 0.9rem;
+}
+
+.add-patient-submit-wrap button {
+  cursor: pointer;
+  border-radius: 0.4rem;
+  border: none;
+  background-color: colors.$main-bg-color;
+  color: colors.$accent-bg-color;
+  padding: 0.7rem 4rem;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
+.add-patient-submit-wrap button:hover {
+  transition: background-color 0.3s;
+  background-color: hsl(42, 100%, 93%);
+}

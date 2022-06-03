@@ -1,3 +1,7 @@
+@use './scss_modules/colors.scss';
+@use './scss_modules/main.scss';
+@use './scss_modules/form.scss';
+
 .page-title {
   height: 10rem;
   display: flex;
@@ -13,8 +17,8 @@
 }
 
 .health-records-badge {
-  background-color: var(--main-bg-color);
-  color: var(--accent-bg-color);
+  background-color: colors.$main-bg-color;
+  color: colors.$accent-bg-color;
   padding: 0.75rem 2rem;
   font-weight: bold;
   border-radius: 0.4rem;

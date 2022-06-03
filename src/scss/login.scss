@@ -1,0 +1,49 @@
+@use './scss_modules/colors.scss';
+@use './scss_modules/form.scss';
+@use './scss_modules/main.scss';
+
+.login-section {
+  display: grid;
+  place-items: center;
+  padding: 5rem 0;
+  min-height: calc(100vh - 26rem);
+}
+
+.login-section .login-wrap {
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.login-wrap p {
+  font-size: 0.8rem;
+  color: colors.$attention-dark-color;
+  text-align: center;
+}
+
+.login-wrap button {
+  cursor: pointer;
+  border-radius: 0.4rem;
+  border: none;
+  background-color: colors.$attention-light-color;
+  color: colors.$accent-bg-color;
+  padding: 0.7rem 2rem;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.login-wrap button div {
+  display: flex;
+  align-items: center;
+}
+
+.login-wrap button:hover {
+  transition: background-color 0.3s;
+  background-color: hsl(42, 100%, 83%);
+}
+
+.login-wrap a {
+  font-weight: bold;
+  text-decoration: none;
+  color: colors.$accent-bg-color;
+}

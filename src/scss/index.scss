@@ -1,3 +1,6 @@
+@use './scss_modules/colors.scss';
+@use './scss_modules/main.scss';
+
 .hero-section {
   min-height: 30rem;
   height: calc(100vh - 6rem);
@@ -47,8 +50,8 @@
   cursor: pointer;
   border-radius: 0.4rem;
   border: none;
-  background-color: var(--accent-bg-color);
-  color: var(--main-bg-color);
+  background-color: colors.$accent-bg-color;
+  color: colors.$main-bg-color;
   padding: 0.7rem 2rem;
   transition: background-color 0.3s;
   display: flex;

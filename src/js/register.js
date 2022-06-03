@@ -11,7 +11,7 @@ const passwordInput = document.querySelector('input[type = password]');
 
 redirectBasedOnToken.redirectIfAuthed('patients.html');
 
-const form = document.forms.login_form;
+const form = document.forms.register_form;
 
 form.addEventListener('submit', async (ev) => {
   ev.preventDefault();

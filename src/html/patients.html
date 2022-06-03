@@ -20,19 +20,18 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/form.css" />
-    <link rel="stylesheet" href="../css/patients.css" />
+
+    <link rel="stylesheet" href="../scss/patients.scss" />
   </head>
   <body>
     <div class="add-a-patient-modal">
       <div class="add-a-patient-form-wrap">
-        <div class="esc-form-btn">
+        <div class="modal-esc-btn">
           <span></span>
           <span></span>
         </div>
         <p>Add a patient:</p>
-        <form name="add_patient_form">
+        <form name="add_patient_form" class="medinfo-form">
           <div class="ap-first-name-input-wrap">
             <label for="APfirstNameInput">First name:</label>
             <input

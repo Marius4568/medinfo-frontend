@@ -1,21 +1,11 @@
-:root {
-  --main-bg-color: hsl(42, 100%, 97%);
-  --accent-bg-color: hsl(168, 93%, 22%);
-  --attention-light-color: hsl(42, 100%, 78%);
-  --attention-dark-color: hsl(168, 43%, 22%);
-}
+@use './colors.scss';
 
 body {
-  background-color: var(--main-bg-color);
-  /* background-image: url("https://www.transparenttextures.com/patterns/notebook-dark.png"); */
+  background-color: colors.$main-bg-color;
   font-family: 'Inria Sans', sans-serif;
   overflow-x: hidden;
   height: auto;
 }
-
-/* .body-nav-open {
-  overflow-y: hidden;
-} */
 
 .container {
   padding: 0 2.5rem;
@@ -25,7 +15,7 @@ body {
 header {
   height: 6rem;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  background-color: var(--main-bg-color);
+  background-color: colors.$main-bg-color;
   position: fixed;
   width: 100%;
   z-index: 100;
@@ -58,7 +48,7 @@ header .container {
   height: 0.3rem;
   width: 2rem;
   border-radius: 0.2rem;
-  background-color: var(--accent-bg-color);
+  background-color: colors.$accent-bg-color;
   transition: transform 0.5s, opacity 1s;
 }
 
@@ -78,25 +68,15 @@ header ul {
   align-items: center;
   justify-content: flex-start;
   list-style: none;
-  background-color: var(--main-bg-color);
+  background-color: colors.$main-bg-color;
   height: 100vh;
   overflow-y: auto;
 }
 
-/* TODO: wrap menu around wrapper, give wrapper currrent ul properties 
-and give the ul the following commented properties
- so that menu items would be scrollable on narrow screens */
-/* ul wrapper {
-  height: 100vh;
-  width: 10rem;
-  border: 1px solid red;
-  overflow-y: auto;
-} */
-
 header ul a {
   display: none;
   text-decoration: none;
-  color: var(--accent-bg-color);
+  color: colors.$accent-bg-color;
   font-size: 3rem;
   margin-bottom: 3rem;
   font-weight: bold;
@@ -110,12 +90,6 @@ header ul a:first-child {
 header ul a:last-child {
   margin-bottom: 12rem;
 }
-
-/* header nav .mobile-expand {
-  opacity: 1;
-  width: 100vw;
-  transition: width 0.5s, opacity 0.3s;
-} */
 
 .burger-menu-x span:nth-child(1) {
   transform: rotate(45deg) translateY(0.75rem) translateX(0.1rem);
@@ -133,9 +107,18 @@ header ul a:last-child {
   transition: transform 0.5s, opacity 0.1s;
 }
 
-/* .burger-menu-x html {
-  overflow: hidden;
-} */
+.logout {
+  padding: 1rem 2rem;
+  border-radius: 0.4rem;
+  color: colors.$accent-bg-color;
+  font-size: 2.5rem;
+  border: none;
+  background-color: colors.$attention-light-color;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+}
 
 /*Main*/
 main {
@@ -144,11 +127,11 @@ main {
   height: calc(100vh - 12rem);
 }
 .page-title {
-  background-color: var(--accent-bg-color);
+  background-color: colors.$accent-bg-color;
   height: 6rem;
   display: grid;
   place-items: center;
-  color: var(--main-bg-color);
+  color: colors.$main-bg-color;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -162,8 +145,8 @@ main {
 
 footer {
   height: 6rem;
-  background-color: var(--accent-bg-color);
-  color: var(--main-bg-color);
+  background-color: colors.$accent-bg-color;
+  color: colors.$main-bg-color;
   width: 100%;
   display: grid;
   place-items: center;
@@ -180,10 +163,6 @@ footer {
 }
 
 @media screen and (min-width: 700px) {
-  /* body {
-    overflow-y: visible !important;
-  } */
-
   header nav ul {
     opacity: 1 !important;
     position: static;
@@ -204,6 +183,11 @@ footer {
     opacity: 1 !important;
     font-size: 1rem;
     margin: 0 1rem 0 0;
+  }
+
+  .logout {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
   }
 
   header ul a:first-child {

@@ -1,11 +1,10 @@
-import spinningAnimation from './gsap-animations/spinner';
+import gsap from 'gsap';
+import validator from 'validator';
 import config from './config';
 import fetchFunction from './asyncFuncs';
-import src from 'gsap/src';
-import gsap from 'gsap';
+
 import formAnimations from './gsap-animations/formAnimations';
-import gsapToggle from '../js/gsap-animations/general';
-import validator from 'validator';
+
 import redirectBasedOnToken from './redirectBasedOnToken';
 import displayDataFuncs from './displayDataFuncs';
 
@@ -24,7 +23,7 @@ logoutBtn.addEventListener('click', () => {
 displayDataFuncs.displayPatients(`${config.baseFetchLink}patient/get_patients`);
 
 const addPatientBtn = document.querySelector('.add-patient-btn');
-const escapeBtn = document.querySelector('.esc-form-btn');
+const modalEscBtn = document.querySelector('.modal-esc-btn');
 
 const addPatientTL = gsap.timeline({ paused: true });
 addPatientTL.to('.add-patient-btn', {
@@ -69,7 +68,7 @@ addPatientTL.to(
 );
 
 addPatientTL.set(
-  '.esc-form-btn',
+  '.modal-esc-btn',
   {
     display: 'block',
     duration: 0,
@@ -77,7 +76,7 @@ addPatientTL.set(
   0.9,
 );
 addPatientTL.to(
-  '.esc-form-btn',
+  '.modal-esc-btn',
   {
     opacity: 1,
     duration: 0.3,
@@ -85,12 +84,12 @@ addPatientTL.to(
   1,
 );
 addPatientTL.reverse();
-/////////////////////////
+
 addPatientBtn.addEventListener('click', () => {
   addPatientTL.play();
 });
 
-escapeBtn.addEventListener('click', () => {
+modalEscBtn.addEventListener('click', () => {
   addPatientTL.reverse(1);
 });
 
@@ -131,7 +130,7 @@ addPatientForm.addEventListener('submit', async (ev) => {
     true,
   );
   formAnimations.buttonspinnerRemove(document.querySelector('form button'));
-  if (data.msg === 'Patient added') {
+  if (data.msg) {
     displayDataFuncs.displayPatients(
       `${config.baseFetchLink}patient/get_patients`,
     );
