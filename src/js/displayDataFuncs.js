@@ -170,6 +170,7 @@ export default {
           const lightBoxTL = gsap.timeline();
           lightBoxTL.set('.lightbox', {
             display: 'grid',
+            padding: '4rem 0',
           });
           lightBoxTL.set('body', {
             overflow: 'hidden',

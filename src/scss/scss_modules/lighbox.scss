@@ -3,7 +3,7 @@
 .lightbox {
   display: none;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 8rem);
   opacity: 0;
   top: 0;
   left: 0;
@@ -40,9 +40,9 @@
   cursor: pointer;
 }
 
-.lightbox-content-wrap {
-  padding: 4rem 0;
-}
+// .lightbox-content-wrap {
+//   padding: 4rem 0;
+// }
 
 .lightbox-content {
   overflow-y: auto;
