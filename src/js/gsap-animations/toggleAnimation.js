@@ -1,4 +1,4 @@
-export default function gsapToggle(timeline, reverseDuration) {
+export default function toggleAnimation(timeline, reverseDuration) {
   if (timeline.reversed()) {
     timeline.play();
   } else {

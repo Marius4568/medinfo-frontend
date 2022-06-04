@@ -35,6 +35,7 @@ addPatientTL.set('.add-patient-btn', {
 });
 addPatientTL.set('body', {
   overflow: 'hidden',
+  paddingRight: '1rem',
   duration: 0,
 });
 

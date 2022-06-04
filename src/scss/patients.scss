@@ -130,28 +130,6 @@
   transform: rotate(-45deg);
 }
 
-.no-patients {
-  color: colors.$accent-bg-color;
-
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 5rem 2rem;
-  margin: auto;
-}
-
-.no-patients p {
-  font-size: 2rem;
-  margin: 0 0 1rem 0;
-}
-
-.no-patients img {
-  width: 3rem;
-}
-
 .patients {
   padding: 0 0;
   display: flex;
@@ -255,13 +233,5 @@
   .add-patient-btn:hover {
     transition: transform 0.5s;
     transform: translate(0, -50%);
-  }
-
-  .no-patients p {
-    font-size: 2.5rem;
-  }
-
-  .no-patients img {
-    width: 3.5rem;
   }
 }

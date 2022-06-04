@@ -1,0 +1,76 @@
+@use './colors.scss';
+
+.lightbox {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 200;
+  place-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  pointer-events: auto;
+}
+
+.lightbox::before {
+  content: '';
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background-color: colors.$main-bg-color;
+  width: 0.2rem;
+  height: 1.5rem;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+.lightbox::after {
+  content: '';
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background-color: colors.$main-bg-color;
+  width: 0.2rem;
+  height: 1.5rem;
+  transform: rotate(-45deg);
+  cursor: pointer;
+}
+
+.lightbox-content-wrap {
+  padding: 4rem 0;
+}
+
+.lightbox-content {
+  overflow-y: auto;
+  min-height: 30rem;
+  min-width: 10rem;
+  padding: 2rem 3rem;
+  max-width: 40rem;
+  width: 60vw;
+  height: 70vh;
+  background-color: colors.$main-bg-color;
+  border-radius: 0.4rem;
+  color: colors.$accent-bg-color;
+}
+
+h3 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.lightbox-log-date,
+.lightbox-log-time {
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: bold;
+}
+.lightbox-log-date {
+}
+
+.lightbox-log-description {
+  margin-top: 2rem;
+}

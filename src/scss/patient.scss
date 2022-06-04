@@ -1,6 +1,7 @@
 @use './scss_modules/colors.scss';
 @use './scss_modules/main.scss';
 @use './scss_modules/form.scss';
+@use './scss_modules/lighbox.scss';
 
 .page-title {
   height: 10rem;
@@ -22,4 +23,89 @@
   padding: 0.75rem 2rem;
   font-weight: bold;
   border-radius: 0.4rem;
+}
+
+.log-cards-container {
+  padding: 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  position: relative;
+  min-height: calc(100% - 10rem);
+  margin: 0;
+  padding: 5rem 2rem;
+}
+.log-card {
+  background: linear-gradient(
+      rgba(255, 250, 238, 0.3) 0%,
+      rgba(255, 250, 238, 0.8) 100%
+    ),
+    url('https://www.transparenttextures.com/patterns/notebook-dark.png');
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 3rem 1.2rem;
+  position: relative;
+  min-width: 15rem;
+  min-height: 10rem;
+}
+.log-card-icon {
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: colors.$accent-bg-color;
+  top: 0;
+  left: 0;
+  border-bottom-right-radius: 0.4rem;
+  display: grid;
+  place-items: center;
+}
+
+.log-card-icon img {
+  width: 60%;
+  height: 60%;
+}
+
+.log-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: colors.$accent-bg-color;
+  text-align: center;
+}
+.log-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0;
+}
+.log-date,
+.log-time {
+  display: block;
+  font-weight: bold;
+}
+
+.log-date {
+  margin: 1.5rem 0 0.5rem 0;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.log-time {
+  margin: 0 0 1rem 0;
+}
+
+.log-view-more-btn {
+  padding: 0.7rem 2rem;
+  border-radius: 0.4rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  background-color: colors.$accent-bg-color;
+  color: colors.$main-bg-color;
+  border: none;
 }

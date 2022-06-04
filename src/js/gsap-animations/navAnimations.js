@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import gsapToggle from './general';
+import gsapToggle from './toggleAnimation';
 
 gsap.registerPlugin(ScrollTrigger);
 
